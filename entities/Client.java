@@ -1,15 +1,15 @@
 package entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Client {
+	
+	private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	
 	private String name;
 	private String email;
 	private LocalDate birthDate;
-	
-	Client() {
-		
-	}
 
 	public Client(String name, String email, LocalDate birthDate) {
 		this.name = name;
@@ -41,5 +41,7 @@ public class Client {
 		this.birthDate = birthDate;
 	}
 	
-	
+	public String toString() {
+		return name + " (" + dtf.format(birthDate) + ") - " + email;
+ 	}
 }
